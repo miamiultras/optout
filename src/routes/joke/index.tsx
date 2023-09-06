@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import { routeLoader$, Form, routeAction$ } from '@builder.io/qwik-city';
  
 export const useDadJoke = routeLoader$(async () => {
@@ -17,9 +17,11 @@ export const useJokeVoteAction = routeAction$((props) => {
 });
  
 export default component$(() => {
+  const isFavoriteSignal = useSignal(false);
   // Calling our `useDadJoke` hook, will return a reactive signal to the loaded data.
   const dadJokeSignal = useDadJoke();
   const favoriteJokeAction = useJokeVoteAction();
+ 
   return (
     <section class="section bright">
       <p>{dadJokeSignal.value.joke}</p>
@@ -32,6 +34,11 @@ export default component$(() => {
           👎
         </button>
       </Form>
+      <button
+        onClick$={() => (isFavoriteSignal.value = !isFavoriteSignal.value)}
+      >
+        {isFavoriteSignal.value ? '❤️' : '🤍'}
+      </button>
     </section>
   );
 });
