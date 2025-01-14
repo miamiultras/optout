@@ -99,7 +99,9 @@ module.exports = {
     new rspack.container.ModuleFederationPlugin({
       name: 'remote',
       filename: 'remoteEntry.js',
-      exposes: {},
+      exposes: {
+        './Counter': './src/Counter',
+      },
       shared: {
         react: { eager: true },
         'react-dom': { eager: true },
