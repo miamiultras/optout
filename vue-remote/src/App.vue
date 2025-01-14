@@ -4,5 +4,16 @@
     <div>Framework: vue3</div>
     <div>Language: JavaScript</div>
     <div>CSS: Tailwind</div>
+    <Counter />
   </div>
 </template>
+
+<script>
+import Counter from './Counter.vue'
+
+export default {
+  components: {
+    Counter
+  }
+}
+</script>

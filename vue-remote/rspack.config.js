@@ -6,6 +6,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 const printCompilationMessage = require('./compilation.config.js');
 
+const dependencies = require('./package.json').dependencies;
 /**
  * @type {import('@rspack/cli').Configuration}
  */
@@ -108,8 +109,11 @@ module.exports = {
     new rspack.container.ModuleFederationPlugin({
       name: 'vue_remote',
       filename: 'remoteEntry.js',
-      exposes: {},
+      exposes: {
+        './CounterMounter': './src/counterMounter.js',
+      },
       shared: {
+        ...dependencies
       },
     }),
     new rspack.DefinePlugin({
