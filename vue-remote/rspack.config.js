@@ -110,7 +110,7 @@ module.exports = {
       name: 'vue_remote',
       filename: 'remoteEntry.js',
       exposes: {
-        './CounterMounter': './src/counterMounter.js',
+        './counterMounter': './src/counterMounter.js',
       },
       shared: {
         ...dependencies
