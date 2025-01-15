@@ -23,6 +23,8 @@ Micro frontends architecture allows you to break down a frontend application int
 
 ## Installation
 
+To install the project locally for the host or remotes, navigate to the appropriate directory and use the following command:
+
 ```
 npm install
 ```
@@ -30,16 +32,12 @@ npm install
 ## Usage
 
 To run the project locally for the host or remotes, navigate to the appropriate directory and use the following command:
+
 ```
 npm start
 ```
 
 You can start the host and remotes separately. Changes in the remotes will be reflected in their components in the host at runtime through runtime linking.
-
-This will start the development server and you can view the application in your browser.
-
-
-This will start the development server and you can view the application in your browser.
 
 ## Contributing
 
